@@ -76,8 +76,8 @@ export const Hero = () => {
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 relative z-10 px-6">
         {/* Text Section */}
         <div className="md:w-1/2 text-left">
-          <h1 className="text-5xl font-extrabold text-cyan-400 cursor-pointer">
-            <span ref={textRef}></span>
+          <h1 className="text-5xl font-extrabold text-fuchsia-600 dark:text-cyan-400 cursor-pointer">
+            <span ref={textRef} />
           </h1>
           <motion.p
             animate={{ opacity: 1, y: 0 }}

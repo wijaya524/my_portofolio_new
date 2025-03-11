@@ -37,13 +37,11 @@ export const Navbar = () => {
     <>
       {/* Navbar Utama */}
       <HeroUINavbar
+        className={`transition-all duration-300  ${
+          theme === "light" ? "bg-white shadow-lg" : ""
+        } p-4 rounded-xl`}
         maxWidth="xl"
         position="sticky"
-        className={`transition-all duration-300  ${
-          theme === "light"
-            ? "bg-white shadow-lg"
-            : ""
-        } p-4 rounded-xl`}
       >
         <NavbarContent
           className="hidden md:flex w-full md:space-x-5 xl:space-x-24"
@@ -54,18 +52,18 @@ export const Navbar = () => {
               <Link key={item.name} passHref href={item.link}>
                 <motion.div
                   className="relative flex items-center justify-center px-4 py-2 cursor-pointer"
-                  onClick={() => setActive(item.name)}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
+                  onClick={() => setActive(item.name)}
                 >
                   {active === item.name && (
                     <motion.div
-                      className="absolute inset-0 rounded-lg blur-md opacity-50"
+                      className="absolute inset-0 rounded-lg blur-md opacity-100"
+                      layoutId="activeBackground"
                       style={{
                         backgroundColor:
-                          theme === "light" ? "#4f46e5" : "#3b82f6",
+                          theme === "light" ? undefined : "#3b82f6",
                       }}
-                      layoutId="activeBackground"
                       transition={{ duration: 0.4, ease: "easeOut" }}
                     />
                   )}
@@ -96,18 +94,18 @@ export const Navbar = () => {
       <AnimatePresence>
         {isDrawerOpen && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md z-50 flex justify-end"
-            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-md z-50 flex justify-end"
             exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
           >
             <motion.div
+              animate={{ x: 0 }}
               className={`w-3/4 h-full ${
                 theme === "light" ? "bg-white" : "bg-slate-900"
               } shadow-xl p-6 relative`}
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
               exit={{ x: "100%" }}
+              initial={{ x: "100%" }}
               transition={{ duration: 0.3 }}
             >
               {/* Tombol Close */}
@@ -124,16 +122,16 @@ export const Navbar = () => {
                   <motion.div
                     key={item.name}
                     className="relative cursor-pointer p-3 rounded-lg transition-all duration-300"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => {
                       setActive(item.name);
                       setIsDrawerOpen(false);
                     }}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
                   >
                     {active === item.name && (
                       <motion.div
-                        className="absolute inset-0 bg-blue-500 rounded-lg blur-md opacity-50"
+                        className="absolute inset-0 bg-cyan-500 rounded-lg blur-md opacity-50"
                         layoutId="activeBackground"
                         transition={{ duration: 0.4, ease: "easeOut" }}
                       />
