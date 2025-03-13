@@ -16,7 +16,7 @@ import { ThemeSwitch } from "@/components/theme-switch";
 const ListItem = [
   { name: "Home", link: "/#hero" },
   { name: "My Project", link: "#projects" },
-  { name: "My Skills", link: "/" },
+  { name: "My Skills", link: "#skills" },
   { name: "My Social Media", link: "/" },
   { name: "Contact Me", link: "/" },
 ];

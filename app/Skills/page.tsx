@@ -63,7 +63,7 @@ const SkillsPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center  text-white p-10">
+    <div id="skills" className="min-h-screen flex flex-col items-center justify-center  text-white p-10">
       <h1 className="text-4xl font-bold mb-10" data-aos="fade-down">
         My Skills
       </h1>
