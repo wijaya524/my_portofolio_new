@@ -58,11 +58,17 @@ export const Navbar = () => {
                 >
                   {active === item.name && (
                     <motion.div
-                      className="absolute inset-0 rounded-lg blur-md opacity-100"
+                      className={
+                        theme === "dark"
+                          ? "absolute inset-0 rounded-lg blur-md opacity-100"
+                          : "absolute inset-0"
+                      }
                       layoutId="activeBackground"
                       style={{
                         backgroundColor:
                           theme === "light" ? undefined : "#3b82f6",
+                        borderBottom:
+                          theme === "light" ? "4px solid black" : undefined,
                       }}
                       transition={{ duration: 0.4, ease: "easeOut" }}
                     />

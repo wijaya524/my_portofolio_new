@@ -13,14 +13,16 @@ import Mypicture from "../components/images/my-picture.png";
 gsap.registerPlugin(TextPlugin);
 
 const CircuitEffect = () => {
-  const [positions, setPositions] = useState<{ top: string; left: string }[]>([]);
+  const [positions, setPositions] = useState<{ top: string; left: string }[]>(
+    [],
+  );
 
   useEffect(() => {
     setPositions(
       Array.from({ length: 8 }).map(() => ({
         top: `${Math.random() * 100}%`,
         left: `${Math.random() * 100}%`,
-      }))
+      })),
     );
   }, []);
 
@@ -31,7 +33,7 @@ const CircuitEffect = () => {
           <motion.div
             key={i}
             animate={{ y: [-10, 10, -10] }}
-            className="absolute bg-cyan-400 opacity-20 w-[2px] h-[100px]"
+            className="absolute bg-fuchsia-600 dark:bg-cyan-400 opacity-20 w-[2px] h-[100px]"
             style={pos}
             transition={{ duration: 3 + Math.random() * 2, repeat: Infinity }}
           />
@@ -54,7 +56,7 @@ export const Hero = () => {
     if (typeof window !== "undefined" && textRef.current) {
       gsap.to(textRef.current, {
         text: "Welcome to my Portfolio",
-        duration: 2,
+        duration: 3,
         ease: "power1.out",
         repeat: 0,
       });
@@ -66,7 +68,11 @@ export const Hero = () => {
   return (
     <section
       className={`relative w-full h-screen flex justify-center items-center body-font overflow-hidden ${
-        !mounted ? "bg-white text-gray-800" : currentTheme === "dark" ? "bg-black text-gray-200" : "bg-white text-gray-800"
+        !mounted
+          ? "bg-white text-gray-800"
+          : currentTheme === "dark"
+            ? "bg-black text-gray-200"
+            : "bg-white text-gray-800"
       }`}
     >
       {/* Efek Latar Belakang */}
@@ -83,7 +89,7 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-lg mt-4 max-w-lg"
             initial={{ opacity: 0, y: 20 }}
-            transition={{ duration: 1, delay: 2, ease: "easeOut" }}
+            transition={{ duration: 1, delay: 3, ease: "easeOut" }}
           >
             Step into the future of digital experiences. Explore my innovative
             projects and creative journey.
@@ -98,7 +104,7 @@ export const Hero = () => {
         >
           <Image
             alt="hero"
-            className="object-cover object-center rounded-lg shadow-lg shadow-cyan-500/50"
+            className="object-cover object-center rounded-lg shadow-lg shadow-fuchsia-600 dark:shadow-cyan-500/50"
             height={500}
             src={Mypicture}
             width={500}
