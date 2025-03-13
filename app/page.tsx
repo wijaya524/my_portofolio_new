@@ -12,7 +12,6 @@ export default function Home() {
     <>
       <HeroPage />
       <Projects />
- 
       <SkillsPage />
       <SCMediaPage />
     </>
