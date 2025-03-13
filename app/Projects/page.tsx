@@ -13,26 +13,42 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 
-import Jombang from "../components/images/Jombang.png";
+import Jombang from "../../components/images/Jombang.png";
+import ScrollButton from "@/components/arrow";
+
 
 export default function Projects() {
   const [activeCard, setActiveCard] = useState<string | null>(null);
 
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: false,
-    });
+    AOS.init({ duration: 1000, once: false });
+
+    const handleHashChange = () => {
+      const hash = window.location.hash.substring(1);
+      const element = document.getElementById(hash);
+
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center flex-col gap-10 py-16">
+    <div
+      className="min-h-screen flex items-center justify-center flex-col gap-10 py-16"
+      id="projects"
+    >
       <span data-aos="fade-down">
         <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
           My Projects
         </h1>
       </span>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center items-center gap-8 perspective-1000">
+      <div className=" py-16">
         <div
           className="card-container transition-all duration-500 ease-out transform-gpu"
           data-aos="fade-up-right"
@@ -50,7 +66,7 @@ export default function Projects() {
               className={`absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 rounded-lg transition-opacity duration-700 ease-in-out ${
                 activeCard === "siades" ? "opacity-20" : "opacity-0"
               }`}
-             />
+            />
 
             <CardHeader
               className={`flex gap-3 bg-gradient-to-r from-blue-900 to-purple-900 transition-all duration-500 ease-out ${
@@ -60,20 +76,15 @@ export default function Projects() {
               <div className="relative group">
                 <Image
                   alt="Jombang logo"
-                  className={`rounded-full border-2${
-                    activeCard === "siades"
-                      ? "border-purple-400 rotate-3 scale-110"
-                      : "border-blue-400"
-                  }`}
                   height={70}
                   src={Jombang}
                   width={70}
                 />
                 <div
-                  className={`absolute inset-0 rounded-full bg-blue-500 transition-all duration-700 ease-in-out ${
+                  className={` ${
                     activeCard === "siades" ? "opacity-30" : "opacity-0"
                   }`}
-                 />
+                />
               </div>
               <div className="flex flex-col">
                 <p
@@ -104,7 +115,7 @@ export default function Projects() {
                     ? "from-blue-500/10 to-purple-500/10 opacity-100"
                     : "from-blue-500/5 to-purple-500/5 opacity-50"
                 }`}
-               />
+              />
               <p
                 className={`relative z-10 transition-colors duration-500 ease-out ${
                   activeCard === "siades" ? "text-gray-100" : "text-gray-300"
@@ -159,6 +170,8 @@ export default function Projects() {
         <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000" />
         <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000" />
       </div>
+
+
     </div>
   );
 }

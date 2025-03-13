@@ -7,7 +7,7 @@ import gsap from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import { useTheme } from "next-themes";
 
-import Mypicture from "../components/images/my-picture.png";
+import Mypicture from "../../components/images/my-picture.png";
 
 // Registrasi plugin GSAP
 gsap.registerPlugin(TextPlugin);
@@ -24,10 +24,27 @@ const CircuitEffect = () => {
         left: `${Math.random() * 100}%`,
       })),
     );
+
+    const handleHashChange = () => {
+      const hash = window.location.hash.substring(1);
+      const element = document.getElementById(hash);
+
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
   return (
-    <div className="absolute inset-0 flex justify-center items-center">
+    <div
+      className="absolute inset-0 flex justify-center items-center"
+      id="hero"
+    >
       <div className="relative w-full h-full">
         {positions.map((pos, i) => (
           <motion.div
@@ -43,7 +60,7 @@ const CircuitEffect = () => {
   );
 };
 
-export const Hero = () => {
+const HeroPage = () => {
   const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const textRef = useRef<HTMLSpanElement | null>(null);
@@ -115,4 +132,4 @@ export const Hero = () => {
   );
 };
 
-export default Hero;
+export default HeroPage;

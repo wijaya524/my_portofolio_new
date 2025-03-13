@@ -14,8 +14,8 @@ import Link from "next/link";
 import { ThemeSwitch } from "@/components/theme-switch";
 
 const ListItem = [
-  { name: "Home", link: "/" },
-  { name: "My Project", link: "/" },
+  { name: "Home", link: "/#hero" },
+  { name: "My Project", link: "#projects" },
   { name: "My Skills", link: "/" },
   { name: "My Social Media", link: "/" },
   { name: "Contact Me", link: "/" },
@@ -29,6 +29,21 @@ export const Navbar = () => {
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.substring(1);
+      const element = document.getElementById(hash);
+
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
   if (!mounted) return null;
@@ -47,9 +62,24 @@ export const Navbar = () => {
           className="hidden md:flex w-full md:space-x-5 xl:space-x-24"
           justify="center"
         >
-          <NavbarItem className="flex gap-16 relative">
+          <NavbarItem className="flex gap-16 ">
             {ListItem.map((item) => (
-              <Link key={item.name} passHref href={item.link}>
+              <Link
+                key={item.name}
+                passHref
+                href={item.link}
+                onClick={(e) => {
+                  if (item.link.startsWith("#")) {
+                    e.preventDefault();
+                    const section = document.querySelector(item.link);
+
+                    if (section) {
+                      section.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }
+                  setActive(item.name);
+                }}
+              >
                 <motion.div
                   className="relative flex items-center justify-center px-4 py-2 cursor-pointer"
                   whileHover={{ scale: 1.1 }}

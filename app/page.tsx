@@ -1,13 +1,16 @@
 "use client";
 
-import Hero from "@/components/hero";
-import Projects from "@/components/projects";
+import ScrollButton from "@/components/arrow";
+import Projects from "./Projects/page";
+
+import HeroPage from "@/app/Hero/page";
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      <HeroPage />
       <Projects />
+      <ScrollButton />
     </>
   );
 }
