@@ -16,7 +16,7 @@ export default function ScrollButton() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center  text-white relative overflow-hidden">
+    <div className="flex flex-col items-center justify-center  text-white relative ">
       <button
         ref={buttonRef}
         className="px-6 py-3 text-lg font-bold uppercase tracking-wider text-cyan-400 border-2 border-cyan-400 rounded-full  transition-all duration-300 shadow-lg flex items-center gap-2"
