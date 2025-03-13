@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import Image from "next/image";
+import { FaArrowDown } from "react-icons/fa";
 
 export default function ScrollButton() {
   const buttonRef = useRef(null);
@@ -23,7 +23,7 @@ export default function ScrollButton() {
         onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
       >
         Next
-        <Image  src="/icons/arrow.svg" alt="Arrow Down" width={24} height={24} />
+        <FaArrowDown />
       </button>
     </div>
   );

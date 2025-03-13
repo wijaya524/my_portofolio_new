@@ -14,7 +14,7 @@ import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 
 import Jombang from "../../components/images/Jombang.png";
-import ScrollButton from "@/components/arrow";
+
 
 
 export default function Projects() {
