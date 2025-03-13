@@ -8,6 +8,7 @@ import { TextPlugin } from "gsap/TextPlugin";
 import { useTheme } from "next-themes";
 
 import Mypicture from "../../components/images/my-picture.png";
+import Aos from "aos";
 
 // Registrasi plugin GSAP
 gsap.registerPlugin(TextPlugin);
@@ -18,6 +19,7 @@ const CircuitEffect = () => {
   );
 
   useEffect(() => {
+      Aos.init({ duration: 1000, once: false });
     setPositions(
       Array.from({ length: 8 }).map(() => ({
         top: `${Math.random() * 100}%`,
@@ -128,6 +130,7 @@ text-transparent dark:text-cyan-400 cursor-pointer">
             alt="hero"
             className="object-cover object-center rounded-lg shadow-lg shadow-fuchsia-900 dark:shadow-cyan-500/50"
             height={500}
+           data-aos="zoom-in"
             src={Mypicture}
             width={500}
           />

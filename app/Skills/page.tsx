@@ -69,7 +69,7 @@ const skills = [
 
 const SkillsPage = () => {
   const containerRef = useRef(null);
-  const [positions, setPositions] = useState([]);
+  const [positions, setPositions] = useState<{ x: number; y: number; width: number; height: number }[]>([]);
   const [isAndroid, setIsAndroid] = useState(false);
 
   // Deteksi perangkat Android
