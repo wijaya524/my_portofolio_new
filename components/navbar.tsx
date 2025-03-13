@@ -159,7 +159,14 @@ export const Navbar = () => {
                     className="relative cursor-pointer p-3 rounded-lg transition-all duration-300"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => {
+                    onClick={(e) => {
+                      if (item.link.startsWith("#")) {
+                        e.preventDefault();
+                        const section = document.querySelector(item.link);
+                        if (section) {
+                          section.scrollIntoView({ behavior: "smooth" });
+                        }
+                      }
                       setActive(item.name);
                       setIsDrawerOpen(false);
                     }}

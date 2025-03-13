@@ -1,13 +1,12 @@
 "use client";
 
-import ScrollButton from "@/components/arrow";
-import Projects from "./Projects/page";
 
-import HeroPage from "@/app/Hero/page";
+import Projects from "./Projects/page";
 import SkillsPage from "./Skills/page";
-import SCMediaPage from "./SCMedia/page";
 import ContactPage from "./Contact/page";
 import Footer from "./Footer/page";
+
+import HeroPage from "@/app/Hero/page";
 
 export default function Home() {
   return (

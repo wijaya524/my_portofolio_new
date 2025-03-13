@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Button } from "@heroui/button";
 import { Input, Textarea } from "@heroui/input";
 import React from "react";
@@ -6,36 +5,25 @@ import React from "react";
 const ContactPage = () => {
   return (
     <section className="text-gray-600 body-font relative" id="contact">
-      <div className="container px-5 py-24 mx-auto">
+      <div className="container mx-auto px-5 py-16 md:py-24">
         <div className="flex flex-col text-center w-full mb-12">
-          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 dark:text-slate-200">
+          <h1 className="text-2xl sm:text-3xl font-medium title-font mb-4 text-gray-900 dark:text-slate-200">
             Contact Us
           </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-900 dark:text-slate-200">
-            Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-            gentrify.
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-700 dark:text-slate-300">
+            Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.
           </p>
         </div>
-        <div className="lg:w-1/2 md:w-2/3 mx-auto">
-          <div className="flex flex-wrap -m-2">
-            <div className="p-2 w-1/2">
-              <div className="relative">
-              <Input label="Name" type="text" />
-              </div>
-            </div>
-            <div className="p-2 w-1/2">
-              <div className="relative">
-              <Input label="Email" type="email" />
-              </div>
-            </div>
-            <div className="p-2 w-full">
-              <div className="relative">
-              <Textarea className="max-w-full" label="Description" placeholder="Enter your description" />
-              </div>
-            </div>
-            <div className="p-2 w-full">
-            <Button color="primary" className="w-full">Button</Button>
-            </div>
+        <div className="max-w-2xl mx-auto bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Input label="Name" type="text" className="w-full" />
+            <Input label="Email" type="email" className="w-full" />
+          </div>
+          <div className="mt-4">
+            <Textarea className="w-full" label="Description" placeholder="Enter your description" />
+          </div>
+          <div className="mt-6">
+            <Button color="primary" className="w-full ">Submit</Button>
           </div>
         </div>
       </div>
