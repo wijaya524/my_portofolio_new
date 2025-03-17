@@ -6,9 +6,9 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import { useTheme } from "next-themes";
+import Aos from "aos";
 
 import Mypicture from "../../components/images/my-picture.png";
-import Aos from "aos";
 
 // Registrasi plugin GSAP
 gsap.registerPlugin(TextPlugin);
@@ -101,12 +101,7 @@ const HeroPage = () => {
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 relative z-10 px-6">
         {/* Text Section */}
         <div className="md:w-1/2 text-left">
-          <h1 className="text-5xl font-extrabold bg-gradient-to-bl
-from-purple-600
-via-violet-700
-to-violet-900
-bg-clip-text
-text-transparent dark:text-cyan-400 cursor-pointer">
+          <h1 className="text-5xl font-extrabold text-[#D933F8] dark:text-cyan-400 cursor-pointer">
             <span ref={textRef} />
           </h1>
           <motion.p
@@ -129,8 +124,8 @@ text-transparent dark:text-cyan-400 cursor-pointer">
           <Image
             alt="hero"
             className="object-cover object-center rounded-lg shadow-lg shadow-fuchsia-900 dark:shadow-cyan-500/50"
+            data-aos="zoom-in"
             height={500}
-           data-aos="zoom-in"
             src={Mypicture}
             width={500}
           />
