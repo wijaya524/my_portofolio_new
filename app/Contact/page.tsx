@@ -7,7 +7,7 @@ const ContactPage = () => {
     <section className="text-gray-600 body-font relative" id="contact">
       <div className="container mx-auto px-5 py-16 md:py-24">
         <div className="flex flex-col text-center w-full mb-12">
-          <h1 className="text-2xl sm:text-3xl font-medium title-font mb-4 text-gray-900 dark:text-slate-200">
+          <h1 className=" text-2xl md:text-5xl font-semibold title-font mb-4 text-gray-900 dark:text-slate-200">
             Contact Us
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-700 dark:text-slate-300">

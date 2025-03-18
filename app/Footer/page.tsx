@@ -1,21 +1,69 @@
+/* eslint-disable prettier/prettier */
+import { Card, CardBody, CardHeader, Link } from "@heroui/react";
 import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const email = "aryansyahyudhawijaya@gmail.com";
-  
+
   return (
-    <footer className="bg-gray-900 text-white py-6">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
-        <div>
-        <p className="text-sm">&copy; {currentYear} Aryansyah Yudha Wijaya. All rights reserved.</p>
-        <p className=" flex items-center gap-2 text-sm"> <FaEnvelope />{email}</p>
+    <footer className=" dark:text-white py-6">
+      <div className="container mx-auto flex flex-col  justify-between items-center px-6 space-y-12">
+        <section className=" space-y-3 ">
+          <h1 className="  text-2xl md:text-5xl  font-semibold text-center">My Social Media</h1>
+          <p className=" text-center">Get involved in our community. Everyone is welcome!</p>
+        </section>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <Card className=" w-72 dark:bg-[#0B0B0C]">
+            <CardHeader>
+              <FooterLink
+                href="https://github.com/wijaya524"
+                icon={<FaGithub size={30} />}
+                label="GitHub"
+              />
+            </CardHeader>
+            <CardBody>
+              <p>For more source code visit my github.</p>
+            </CardBody>
+          </Card>
+
+          <Card className="w-72 dark:bg-[#0B0B0C]">
+            <CardHeader>
+              <FooterLink
+                href="https://www.linkedin.com/in/aryansyah-yudha-wijaya-1247142a5"
+                icon={<FaLinkedin size={30} />}
+                label="LinkedIn"
+              />
+            </CardHeader>
+            <CardBody>
+              <p>For more source code visit my github.</p>
+            </CardBody>
+          </Card>
+
+          <Card className="w-72 dark:bg-[#0B0B0C]">
+            <CardHeader>
+              <FooterLink
+                href={`https://www.instagram.com/ryanfor58?igsh=MWl1eHk0OWR3Zmp4Mg==`}
+                icon={<FaInstagram size={30} />}
+                label="Instagram"
+              />
+            </CardHeader>
+            <CardBody>
+              <p>For more source code visit my github.</p>
+            </CardBody>
+          </Card>
         </div>
-        
-        <div className="flex space-x-4 mt-4 md:mt-0">
-          <FooterLink href="https://github.com/wijaya524" icon={<FaGithub size={20} />} label="GitHub" />
-          <FooterLink href="https://www.linkedin.com/in/aryansyah-yudha-wijaya-1247142a5" icon={<FaLinkedin size={20} />} label="LinkedIn" />
-          <FooterLink href={`https://www.instagram.com/ryanfor58?igsh=MWl1eHk0OWR3Zmp4Mg==`} icon={<FaInstagram size={20} />} label="Instagram" />
+
+        <div className=" flex flex-col items-center space-y-3 py-10 text-center">
+          <p className=" flex items-center gap-2 text-sm">
+            {" "}
+            <FaEnvelope />
+            {email}
+          </p>
+          <p className="text-sm">
+            &copy; {currentYear} Aryansyah Yudha Wijaya. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
@@ -30,14 +78,19 @@ interface FooterLinkProps {
 
 function FooterLink({ href, icon, label }: FooterLinkProps) {
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center space-x-2 hover:text-gray-400"
-    >
-      {icon}
-      <span>{label}</span>
-    </a>
+    <section className=" flex items-center justify-center space-x-3">
+      <span>{icon}</span>
+      <Link
+        isExternal
+        showAnchorIcon
+        className=" text-lg flex items-center justify-center space-x-2 hover:text-gray-400"
+        href={href}
+        color="foreground"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        {label}
+      </Link>
+    </section>
   );
 }

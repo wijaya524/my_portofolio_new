@@ -40,9 +40,9 @@ export default function Projects() {
       id="projects"
     >
       <section
-        className="text-4xl font-bold flex gap-2"
+        className=" text-2xl md:text-5xl font-semibold flex gap-2"
       >
-        <p className="text-[#11181C] dark:text-[#FFFF]">My</p><h1 className=" text-[#328CF2]">Projects</h1>
+        <h1 className="text-[#11181C]   dark:text-[#FFFF]">My</h1><h1 className=" text-[#328CF2]">Projects</h1>
       </section>
       <div
         className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-6xl"

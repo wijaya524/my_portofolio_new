@@ -102,7 +102,7 @@ const SkillsPage = () => {
         containerRef.current.querySelectorAll(".skill-item");
       const newPositions = Array.from(skillElements).map((el: any) => {
         const rect = el.getBoundingClientRect();
-        const containerRect = containerRef.current.getBoundingClientRect();
+        const containerRect = containerRef?.current?.getBoundingClientRect();
 
         return {
           x: rect.left + rect.width / 2 - containerRect.left,
@@ -224,7 +224,7 @@ const SkillsPage = () => {
         className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-10 z-10 relative"
         {...(isAndroid ? {} : { "data-aos": "fade-down" })}
       >
-        <section className="text-4xl font-bold flex gap-2">
+        <section className=" text-2xl md:text-5xl  font-semibold flex gap-2">
           <p className="text-[#11181C] dark:text-[#FFFF]">My</p>
           <h1 className=" text-[#FF8A59]">Skills</h1>
         </section>

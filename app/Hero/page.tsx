@@ -4,42 +4,26 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { TextPlugin } from "gsap/TextPlugin";
+import { SplitText } from "gsap-trial/SplitText";
 import { useTheme } from "next-themes";
 import Aos from "aos";
 
 import Mypicture from "../../components/images/my-picture.png";
 
 // Registrasi plugin GSAP
-gsap.registerPlugin(TextPlugin);
+gsap.registerPlugin(SplitText);
 
 const CircuitEffect = () => {
-  const [positions, setPositions] = useState<{ top: string; left: string }[]>(
-    [],
-  );
+  const [positions, setPositions] = useState<{ top: string; left: string }[]>([]);
 
   useEffect(() => {
-      Aos.init({ duration: 1000, once: false });
+    Aos.init({ duration: 1000, once: false });
     setPositions(
       Array.from({ length: 8 }).map(() => ({
         top: `${Math.random() * 100}%`,
         left: `${Math.random() * 100}%`,
-      })),
+      }))
     );
-
-    const handleHashChange = () => {
-      const hash = window.location.hash.substring(1);
-      const element = document.getElementById(hash);
-
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    };
-
-    handleHashChange();
-    window.addEventListener("hashchange", handleHashChange);
-
-    return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
   return (
@@ -65,7 +49,7 @@ const CircuitEffect = () => {
 const HeroPage = () => {
   const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const textRef = useRef<HTMLSpanElement | null>(null);
+  const textRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -73,11 +57,14 @@ const HeroPage = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined" && textRef.current) {
-      gsap.to(textRef.current, {
-        text: "Welcome to my Portfolio",
-        duration: 3,
-        ease: "power1.out",
-        repeat: 0,
+      const split = new SplitText(textRef.current, { type: "words,chars" });
+
+      gsap.from(split.chars, {
+        opacity: 0,
+        y: 50,
+        stagger: 0.05, // Efek mengetik satu per satu
+        duration: 0.8,
+        ease: "power2.out",
       });
     }
   }, []);
@@ -86,7 +73,7 @@ const HeroPage = () => {
 
   return (
     <section
-      className={`relative w-full h-screen flex justify-center items-center body-font overflow-hidden ${
+      className={`relative  w-full h-screen flex justify-center items-center body-font overflow-hidden ${
         !mounted
           ? "bg-white text-gray-800"
           : currentTheme === "dark"
@@ -100,18 +87,21 @@ const HeroPage = () => {
       {/* Container Flex */}
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 relative z-10 px-6">
         {/* Text Section */}
-        <div className="md:w-1/2 text-left">
-          <h1 className="text-5xl font-extrabold text-[#D933F8] dark:text-cyan-400 cursor-pointer">
-            <span ref={textRef} />
-          </h1>
+        <div className="md:w-1/2 text-left flex flex-col gap-4 ">
+          <div
+            ref={textRef}
+            className=" text-4xl  md:text-6xl font-extrabold cursor-pointer"
+          >
+            <span className="dark:text-[#ECEDEE]">Welcome to My</span>{" "}
+            <span className="text-[#D933F8] dark:text-cyan-400">Portfolio</span>
+          </div>
           <motion.p
             animate={{ opacity: 1, y: 0 }}
             className="text-lg mt-4 max-w-lg"
             initial={{ opacity: 0, y: 20 }}
             transition={{ duration: 1, delay: 3, ease: "easeOut" }}
           >
-            Step into the future of digital experiences. Explore my innovative
-            projects and creative journey.
+            Step into the future of digital experiences. Explore my innovative projects and creative journey.
           </motion.p>
         </div>
 

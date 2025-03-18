@@ -118,7 +118,7 @@ export const Navbar = () => {
 
         {/* Tombol Menu untuk Mobile */}
         <button
-          className="md:hidden block text-white"
+          className="md:hidden block dark:text-white"
           onClick={() => setIsDrawerOpen(true)}
         >
           <Menu size={28} />
@@ -163,6 +163,7 @@ export const Navbar = () => {
                       if (item.link.startsWith("#")) {
                         e.preventDefault();
                         const section = document.querySelector(item.link);
+
                         if (section) {
                           section.scrollIntoView({ behavior: "smooth" });
                         }
