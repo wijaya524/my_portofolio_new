@@ -11,7 +11,7 @@ import Mypicture from "../../components/images/my-picture.png";
 
 const CircuitEffect = () => {
   const [positions, setPositions] = useState<{ top: string; left: string }[]>(
-    []
+    [],
   );
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const CircuitEffect = () => {
       Array.from({ length: 8 }).map(() => ({
         top: `${Math.random() * 100}%`,
         left: `${Math.random() * 100}%`,
-      }))
+      })),
     );
   }, []);
 

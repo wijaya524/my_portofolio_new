@@ -6,7 +6,7 @@ import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import express from "@/public/images/express-js.png"
+import express from "@/public/images/express-js.png";
 
 const SkillsPage = () => {
   const skills = useMemo(
@@ -27,7 +27,7 @@ const SkillsPage = () => {
     []
   );
 
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const positionsRef = useRef([] as { x: number; y: number }[]);
   const [, setIsAndroid] = useState(false);
 
@@ -40,20 +40,20 @@ const SkillsPage = () => {
   }, []);
 
   const updatePositions = useCallback(() => {
-    const container = containerRef.current;
+    if (!containerRef.current) return;
+    const skillElements = containerRef.current.querySelectorAll(".skill-item");
 
-    if (!container) return;
+    if (!skillElements.length) return;
+    
+    const containerRect = containerRef.current.getBoundingClientRect();
 
-    const skillElements = Array.from(container.querySelectorAll(".skill-item"));
-    const containerRect = container.getBoundingClientRect();
+    positionsRef.current = Array.from(skillElements).map((el) => {
+        const rect = (el as Element).getBoundingClientRect();
 
-    positionsRef.current = skillElements.map((el) => {
-      const rect = el.getBoundingClientRect();
-
-      return {
-        x: rect.left + rect.width / 2 - containerRect.left,
-        y: rect.top + rect.height / 2 - containerRect.top,
-      };
+        return {
+            x: rect.left + rect.width / 2 - containerRect.left,
+            y: rect.top + rect.height / 2 - containerRect.top,
+        };
     });
   }, []);
 
@@ -81,8 +81,8 @@ const SkillsPage = () => {
 
         if (distance < maxDistance) {
           const opacity = 1 - distance / maxDistance;
-          const color1 = skills[i].color;
-          const color2 = skills[j].color;
+          const color1 = skills[i]?.color || "#ffffff";
+          const color2 = skills[j]?.color || "#ffffff";
           const gradientId = `gradient-${i}-${j}`;
 
           gradients.push(
@@ -105,11 +105,11 @@ const SkillsPage = () => {
         {connections}
       </svg>
     );
-  }, [skills]);
+  }, [skills, positionsRef.current.length]);
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center gap-28 p-10 relative overflow-hidden" id="skills">
-      <header className="text-center ">
+      <header className="text-center">
         <h1 className="text-2xl md:text-5xl font-bold text-[#11181C] dark:text-white" data-aos="fade-up">
           My <span className="text-[#FF8A59]">Skills</span>
         </h1>
@@ -121,8 +121,24 @@ const SkillsPage = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 relative">
           {skills.map((skill, index) => (
             <article key={index} className="skill-item group" data-aos="zoom-in" data-aos-delay={index * 100}>
-              <figure className="dark:bg-[#111113]  p-4 rounded-lg text-center border border-gray-700 hover:scale-105 transition-transform duration-300 shadow-lg">
-                <Image alt={skill.name} color={skill.color} className="mx-auto" height={64} src={skill.src} width={64} />
+              <figure className="dark:bg-[#111113] p-4 rounded-lg text-center border border-gray-700 hover:scale-105 transition-transform duration-300 shadow-lg">
+                {typeof skill.src === 'string' ? (
+                  <Image 
+                    alt={skill.name} 
+                    className="mx-auto" 
+                    height={64} 
+                    src={skill.src} 
+                    width={64} 
+                  />
+                ) : (
+                  <Image 
+                    alt={skill.name} 
+                    className="mx-auto" 
+                    src={skill.src} 
+                    height={64} 
+                    width={64} 
+                  />
+                )}
                 <figcaption className="text-sm font-medium mt-2 block text-[#11181C] dark:text-slate-100">{skill.name}</figcaption>
               </figure>
             </article>
