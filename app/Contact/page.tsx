@@ -1,31 +1,35 @@
+/* eslint-disable prettier/prettier */
+"use client";
+
 import { Button } from "@heroui/button";
 import { Input, Textarea } from "@heroui/input";
+import { Form } from "@heroui/react";
 import React from "react";
 
 const ContactPage = () => {
   return (
-    <section className="text-gray-600 body-font relative" id="contact">
+    <section  suppressHydrationWarning className="text-gray-600 body-font relative" id="contact">
       <div className="container mx-auto px-5 py-16 md:py-24">
-        <div className="flex flex-col text-center w-full mb-12">
+        <header className="flex flex-col text-center w-full mb-12">
           <h1 className=" text-2xl md:text-5xl font-semibold title-font mb-4 text-gray-900 dark:text-slate-200">
-            Contact Us
+            For Business?
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-700 dark:text-slate-300">
-            Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.
+            If you want to hire me, please fill in the form.
           </p>
-        </div>
-        <div className="max-w-2xl mx-auto bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Input label="Name" type="text" className="w-full" />
-            <Input label="Email" type="email" className="w-full" />
-          </div>
-          <div className="mt-4">
+        </header>
+        <Form className="max-w-2xl mx-auto   p-6 rounded-lg shadow-md">
+          <fieldset className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+            <Input className="w-full" label="Name" type="text" />
+            <Input className="w-full" label="Email" type="email" />
+          </fieldset>
+          <div className="mt-4  w-full">
             <Textarea className="w-full" label="Description" placeholder="Enter your description" />
           </div>
-          <div className="mt-6">
-            <Button color="primary" className="w-full ">Submit</Button>
-          </div>
-        </div>
+          <fieldset className="mt-6 w-full">
+            <Button className="w-full " color="primary">Submit</Button>
+          </fieldset>
+        </Form>
       </div>
     </section>
   );

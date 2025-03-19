@@ -7,15 +7,15 @@ export default function Footer() {
   const email = "aryansyahyudhawijaya@gmail.com";
 
   return (
-    <footer className=" dark:text-white py-6">
-      <div className="container mx-auto flex flex-col  justify-between items-center px-6 space-y-12">
-        <section className=" space-y-3 ">
-          <h1 className="  text-2xl md:text-5xl  font-semibold text-center">My Social Media</h1>
-          <p className=" text-center">Get involved in our community. Everyone is welcome!</p>
+    <footer className="dark:text-white py-6">
+      <div className="container mx-auto flex flex-col justify-between items-center px-6 space-y-12">
+        <section className="space-y-3 text-center">
+          <h1 className="text-2xl md:text-5xl font-semibold">My Social Media</h1>
+          <p>Get involved in our community. Everyone is welcome!</p>
         </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Card className=" w-72 dark:bg-[#0B0B0C]">
+        <nav className="grid grid-cols-1 md:grid-cols-3 gap-4" aria-label="Social Media Links">
+          <Card className="w-72 dark:bg-[#0B0B0C]">
             <CardHeader>
               <FooterLink
                 href="https://github.com/wijaya524"
@@ -24,7 +24,7 @@ export default function Footer() {
               />
             </CardHeader>
             <CardBody>
-              <p>For more source code visit my github.</p>
+              <p>For more source code, visit my GitHub.</p>
             </CardBody>
           </Card>
 
@@ -37,34 +37,31 @@ export default function Footer() {
               />
             </CardHeader>
             <CardBody>
-              <p>For more source code visit my github.</p>
+              <p>Connect with me on LinkedIn.</p>
             </CardBody>
           </Card>
 
           <Card className="w-72 dark:bg-[#0B0B0C]">
             <CardHeader>
               <FooterLink
-                href={`https://www.instagram.com/ryanfor58?igsh=MWl1eHk0OWR3Zmp4Mg==`}
+                href="https://www.instagram.com/ryanfor58?igsh=MWl1eHk0OWR3Zmp4Mg=="
                 icon={<FaInstagram size={30} />}
                 label="Instagram"
               />
             </CardHeader>
             <CardBody>
-              <p>For more source code visit my github.</p>
+              <p>Follow me on Instagram.</p>
             </CardBody>
           </Card>
-        </div>
+        </nav>
 
-        <div className=" flex flex-col items-center space-y-3 py-10 text-center">
-          <p className=" flex items-center gap-2 text-sm">
-            {" "}
+        <address className="flex flex-col items-center space-y-3 py-10 text-center">
+          <p className="flex items-center gap-2 text-sm">
             <FaEnvelope />
-            {email}
+            <a href={`mailto:${email}`} className="hover:underline">{email}</a>
           </p>
-          <p className="text-sm">
-            &copy; {currentYear} Aryansyah Yudha Wijaya. All rights reserved.
-          </p>
-        </div>
+          <p className="text-sm">&copy; {currentYear} Aryansyah Yudha Wijaya. All rights reserved.</p>
+        </address>
       </div>
     </footer>
   );
@@ -78,19 +75,19 @@ interface FooterLinkProps {
 
 function FooterLink({ href, icon, label }: FooterLinkProps) {
   return (
-    <section className=" flex items-center justify-center space-x-3">
+    <div className="flex items-center justify-center space-x-3">
       <span>{icon}</span>
       <Link
         isExternal
         showAnchorIcon
-        className=" text-lg flex items-center justify-center space-x-2 hover:text-gray-400"
-        href={href}
+        className="text-lg flex items-center justify-center space-x-2 hover:text-gray-400"
         color="foreground"
+        href={href}
         rel="noopener noreferrer"
         target="_blank"
       >
         {label}
       </Link>
-    </section>
+    </div>
   );
 }

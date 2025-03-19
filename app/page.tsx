@@ -1,6 +1,5 @@
 "use client";
 
-
 import Projects from "./Projects/page";
 import SkillsPage from "./Skills/page";
 import ContactPage from "./Contact/page";
