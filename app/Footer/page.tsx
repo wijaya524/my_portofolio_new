@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="container mx-auto flex flex-col justify-between items-center px-6 space-y-12">
         <section className="space-y-3 text-center">
           <h1 className="text-2xl md:text-5xl font-semibold">My Social Media</h1>
-          <p>Get involved in our community. Everyone is welcome!</p>
+          <p> Follow me on my social media to get the latest update!</p>
         </section>
 
         <nav className="grid grid-cols-1 md:grid-cols-3 gap-4" aria-label="Social Media Links">
