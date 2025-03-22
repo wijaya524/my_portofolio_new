@@ -4,6 +4,7 @@
 import { Card, CardFooter, CardHeader, Divider, CardBody, Link } from "@heroui/react";
 import Image from "next/image";
 import { useEffect, useState, useCallback, useMemo } from "react";
+
 import Jombang from "../../components/images/Jombang.png";
 
 // Lazy load AOS untuk meningkatkan performa

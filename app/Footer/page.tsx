@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Card, CardBody, CardHeader, Link } from "@heroui/react";
-import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,11 +10,16 @@ export default function Footer() {
     <footer className="dark:text-white py-6">
       <div className="container mx-auto flex flex-col justify-between items-center px-6 space-y-12">
         <section className="space-y-3 text-center">
-          <h1 className="text-2xl md:text-5xl font-semibold">My Social Media</h1>
+          <h1 className="text-2xl md:text-5xl font-semibold">
+            My Social Media
+          </h1>
           <p> Follow me on my social media to get the latest update!</p>
         </section>
 
-        <nav className="grid grid-cols-1 md:grid-cols-3 gap-4" aria-label="Social Media Links">
+        <nav
+          aria-label="Social Media Links"
+          className="grid grid-cols-1 md:grid-cols-3 gap-4"
+        >
           <Card className="w-72 dark:bg-[#0B0B0C]">
             <CardHeader>
               <FooterLink
@@ -53,14 +58,31 @@ export default function Footer() {
               <p>Follow me on Instagram.</p>
             </CardBody>
           </Card>
+
+          <Card className="w-72 dark:bg-[#0B0B0C]">
+            <CardHeader>
+              <FooterLink
+                href="https://www.youtube.com/@aryakidyt2492"
+                icon={<FaYoutube size={30} />}
+                label="Youtube"
+              />
+            </CardHeader>
+            <CardBody>
+              <p>Subscribe to my YouTube channel.</p>
+            </CardBody>
+          </Card>
         </nav>
 
         <address className="flex flex-col items-center space-y-3 py-10 text-center">
           <p className="flex items-center gap-2 text-sm">
             <FaEnvelope />
-            <a href={`mailto:${email}`} className="hover:underline">{email}</a>
+            <a className="hover:underline" href={`mailto:${email}`}>
+              {email}
+            </a>
           </p>
-          <p className="text-sm">&copy; {currentYear} Aryansyah Yudha Wijaya. All rights reserved.</p>
+          <p className="text-sm">
+            &copy; {currentYear} Aryansyah Yudha Wijaya. All rights reserved.
+          </p>
         </address>
       </div>
     </footer>
