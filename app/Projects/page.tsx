@@ -76,7 +76,7 @@ export default function Projects() {
                   SIADES
                 </h2>
                 <p className="text-sm dark:text-blue-200 opacity-70">
-                  heroui.com
+                  siades.com
                 </p>
               </div>
             </CardHeader>

@@ -100,7 +100,7 @@ const SkillsPage = () => {
     });
 
     return (
-      <svg className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true">
+      <svg aria-hidden="true" className="absolute inset-0 w-full h-full pointer-events-none">
         {gradients}
         {connections}
       </svg>
@@ -134,8 +134,8 @@ const SkillsPage = () => {
                   <Image 
                     alt={skill.name} 
                     className="mx-auto" 
-                    src={skill.src} 
                     height={64} 
+                    src={skill.src} 
                     width={64} 
                   />
                 )}
