@@ -20,7 +20,7 @@ const myProject = [
         domain: "react-asah.com",
         image: Asah,
         describe: "Hasil menyelesaikan learning path React-Backend with AI by Dicoding Indonesia and AAccenture.",
-        url: "https://www.youtube.com/watch?v=y8QZ8A8F4i8"
+        url: "https://github.com/wijaya524/personal-notes-app-starter.git"
     }
 
 ];
