@@ -54,10 +54,10 @@ const HeroPage = () => {
 
   useEffect(() => {
     const delay = setTimeout(() => {
-      setShowText(true); // Aktifkan teks setelah delay
-    }, 3000); // Delay 3 detik
+      setShowText(true); 
+    }, 3000); 
 
-    return () => clearTimeout(delay); // Bersihkan timeout saat komponen unmount
+    return () => clearTimeout(delay); 
   }, []);
 
   useEffect(() => {

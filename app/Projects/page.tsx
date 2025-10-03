@@ -5,14 +5,14 @@ import { Card, CardFooter, CardHeader, Divider, CardBody, Link } from "@heroui/r
 import Image from "next/image";
 import { useEffect, useState, useCallback, useMemo } from "react";
 
-import Jombang from "../../components/images/Jombang.png";
+
 
 // Lazy load AOS untuk meningkatkan performa
 export default function Projects() {
   const [activeCard, setActiveCard] = useState<string | null>(null);
 
   useEffect(() => {
-    if (typeof window === "undefined") return; // Hindari eksekusi di SSR
+    if (typeof window === "undefined") return;
 
     import("aos").then((AosModule) => {
       AosModule.default.init({ duration: 1000, once: true });
@@ -87,6 +87,53 @@ export default function Projects() {
               <p className="text-[#20262A] dark:text-[#ECEDEE]">
                 Sistem Administrasi Desa Jombang digunakan untuk mengelola data
                 desa, termasuk data penduduk, laporan, dan informasi lainnya.
+              </p>
+            </CardBody>
+
+
+            <CardFooter className="bg-[#FEFEFE] dark:bg-[#111113] bg-opacity-50 p-4 flex justify-between items-center">
+              <Link
+                isExternal
+                showAnchorIcon
+                className="text-blue-600 hover:text-blue-500 transition-all"
+                href="https://wijaya524.github.io/aryansyah.github.io/"
+              >
+                Visit the website →
+              </Link>
+            </CardFooter>
+          </Card>
+        </article>
+
+        <article className="">
+          <Card
+            className={cardClass}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <CardHeader className="flex gap-3 bg-[#FEFEFE] dark:bg-[#111113] p-4 ">
+              <figure className="bg-slate-300 rounded-full border dark:bg-zinc-950 bg-opacity-50 flex items-center justify-center w-20 h-20">
+                <Image
+                  alt="Logo Jombang"
+                  height={70}
+                  loading="lazy"
+                  src={Asah}
+                  width={70}
+                />
+              </figure>
+              <div>
+                <h2 className="text-xl text-[#20262A] font-semibold dark:text-[#ECEDEE]">
+                  Asah React Cohort
+                </h2>
+                <p className="text-sm dark:text-blue-200 opacity-70">
+                  myreactcohort.com
+                </p>
+              </div>
+            </CardHeader>
+
+            <Divider className="bg-[#FEFEFE] dark:bg-[#111113] h-0.5" />
+            <CardBody className="bg-[#FEFEFE] dark:bg-[#111113] bg-opacity-50 p-4">
+              <p className="text-[#20262A] dark:text-[#ECEDEE]">
+                Hasil dari menyelesaikan React-Backend with AI Cohort in ASAH LED By Dicoding and Accenture. 
               </p>
             </CardBody>
 
