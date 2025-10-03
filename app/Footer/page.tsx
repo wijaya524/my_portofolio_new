@@ -1,10 +1,15 @@
 /* eslint-disable prettier/prettier */
 import { Card, CardBody, CardHeader, Link } from "@heroui/react";
-import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
+
+import Contact from ".";
+
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const email = "aryansyahyudhawijaya@gmail.com";
+
+  const contactMenu = Contact();
 
   return (
     <footer className="dark:text-white py-6">
@@ -20,57 +25,22 @@ export default function Footer() {
           aria-label="Social Media Links"
           className="grid grid-cols-1 md:grid-cols-3 gap-4"
         >
-          <Card className="w-72 dark:bg-[#0B0B0C]">
+          {
+            contactMenu.map((data : any) => (
+          <Card key={data.id} className="w-72 dark:bg-[#0B0B0C]">
             <CardHeader>
               <FooterLink
                 href="https://github.com/wijaya524"
-                icon={<FaGithub size={30} />}
-                label="GitHub"
-              />
+                icon={<data.myIcon size={30} />}
+                label={data.name}
+                />
             </CardHeader>
             <CardBody>
-              <p>For more source code, visit my GitHub.</p>
+              <p className=" line-clamp-3">{data.body}</p>
             </CardBody>
           </Card>
-
-          <Card className="w-72 dark:bg-[#0B0B0C]">
-            <CardHeader>
-              <FooterLink
-                href="https://www.linkedin.com/in/aryansyah-yudha-wijaya-1247142a5"
-                icon={<FaLinkedin size={30} />}
-                label="LinkedIn"
-              />
-            </CardHeader>
-            <CardBody>
-              <p>Connect with me on LinkedIn.</p>
-            </CardBody>
-          </Card>
-
-          <Card className="w-72 dark:bg-[#0B0B0C]">
-            <CardHeader>
-              <FooterLink
-                href="https://www.instagram.com/ryanfor58?igsh=MWl1eHk0OWR3Zmp4Mg=="
-                icon={<FaInstagram size={30} />}
-                label="Instagram"
-              />
-            </CardHeader>
-            <CardBody>
-              <p>Follow me on Instagram.</p>
-            </CardBody>
-          </Card>
-
-          <Card className="w-72 dark:bg-[#0B0B0C]">
-            <CardHeader>
-              <FooterLink
-                href="https://www.youtube.com/@aryakidyt2492"
-                icon={<FaYoutube size={30} />}
-                label="Youtube"
-              />
-            </CardHeader>
-            <CardBody>
-              <p>Subscribe to my YouTube channel.</p>
-            </CardBody>
-          </Card>
+          ))
+          }
         </nav>
 
         <address className="flex flex-col items-center space-y-3 py-10 text-center">
