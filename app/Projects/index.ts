@@ -3,6 +3,7 @@
 
 import Jombang from "../../components/images/Jombang.png";
 import Asah from "../../components/images/asah.png";
+import Stock from "../../components/images/stocks.png";
 
 
 const myProject = [
@@ -19,8 +20,15 @@ const myProject = [
         name: "React Asah",
         domain: "react-asah.com",
         image: Asah,
-        describe: "Hasil menyelesaikan learning path React-Backend with AI by Dicoding Indonesia and AAccenture.",
+        describe: "Hasil menyelesaikan learning path React-Backend with AI by Dicoding Indonesia and Accenture.",
         url: "https://github.com/wijaya524/personal-notes-app-starter.git"
+    }, {
+         id: 3,
+        name: "Hitung Dividen Saham",
+        domain: "https://dividen-saham.vercel.app/",
+        image: Stock,
+        describe: "Kalkulator untuk menghitung jumlah deviden saham yang diterima berdasarkan data saham yang dimiliki.",
+        url: "https://dividen-saham.vercel.app/"
     }
 
 ];
