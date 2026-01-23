@@ -1,10 +1,9 @@
 /* eslint-disable prettier/prettier */
 
-
 import Jombang from "../../components/images/Jombang.png";
 import Asah from "../../components/images/asah.png";
 import Stock from "../../components/images/stocks.png";
-
+import PacuPintar from "../../components/images/pacuPintar.png";
 
 const myProject = [
     {
@@ -29,6 +28,13 @@ const myProject = [
         image: Stock,
         describe: "Kalkulator untuk menghitung jumlah deviden saham yang diterima berdasarkan data saham yang dimiliki.",
         url: "https://dividen-saham.vercel.app/"
+    }, {
+        id: 4,
+        name: "Capstone Project ASAH",
+        domain: "https://pacupintar.netlify.app",
+        image: PacuPintar,
+        describe: "Aplikasi Pacu Pintar adalah platform pembelajaran interaktif yang dirancang untuk membantu siswa meningkatkan keterampilan akademis mereka melalui kuis, latihan soal, dan materi pembelajaran yang menarik.",
+        url: "https://pacupintar.netlify.app"
     }
 
 ];
