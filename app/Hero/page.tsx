@@ -134,7 +134,7 @@ const HeroPage = () => {
             initial={{ opacity: 0, y: 20 }}
             transition={{ duration: 1, delay: 3, ease: "easeOut" }}
           >
-            An informatics student at Hasyim Asy'ari Tebuireng Jombang  University with experience in web development and applied technology. Former intern at Telkom Akses Jombang (2022). Won 3rd place in KRTI 2024 (Racing Plane Division) and received the Best Spirit Team award in the Fixed Wing Division. Has strengthened his skills in React, back-end development, and AI through the Asah LED program by Dicoding (2025).
+            An informatics student at Hasyim Hasyim Asy&apos;ari Tebuireng Jombang  University with experience in web development and applied technology. Former intern at Telkom Akses Jombang (2022). Won 3rd place in KRTI 2024 (Racing Plane Division) and received the Best Spirit Team award in the Fixed Wing Division. Has strengthened his skills in React, back-end development, and AI through the Asah LED program by Dicoding (2025).
           </motion.p>
         </header>
         <figure>
