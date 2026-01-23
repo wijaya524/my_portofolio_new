@@ -7,6 +7,7 @@ import Footer from "./Footer/page";
 
 import HeroPage from "@/app/Hero/page";
 
+
 export default function Home() {
   return (
     <>
