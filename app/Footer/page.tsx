@@ -30,7 +30,7 @@ export default function Footer() {
           <Card key={data.id} className="w-72 dark:bg-[#0B0B0C]">
             <CardHeader>
               <FooterLink
-                href="https://github.com/wijaya524"
+                href={data.url}
                 icon={<data.myIcon size={30} />}
                 label={data.name}
                 />
