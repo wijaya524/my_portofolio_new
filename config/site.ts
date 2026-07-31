@@ -3,7 +3,9 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
   name: "Aryansyah Wijaya",
   description: "Make beautiful websites regardless of your design experience.",
-  verification: "google2127145495f64024",
+  verification: {
+    google: "wdngKCAknItQh3YAyxUArWjsItuwPoSSkmBnkz2rq2o"
+  },
   navItems: [
     {
       label: "Home",
