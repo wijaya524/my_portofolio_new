@@ -20,12 +20,16 @@ declare module "@react-types/shared" {
   }
 }
 
+import { LanguageProvider } from "@/context/LanguageContext";
+
 export function Providers({ children, themeProps }: ProvidersProps) {
   const router = useRouter();
 
   return (
     <HeroUIProvider navigate={router.push}>
-      <NextThemesProvider {...themeProps}>{children}</NextThemesProvider>
+      <NextThemesProvider {...themeProps}>
+        <LanguageProvider>{children}</LanguageProvider>
+      </NextThemesProvider>
     </HeroUIProvider>
   );
 }

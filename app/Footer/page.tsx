@@ -1,11 +1,14 @@
 /* eslint-disable prettier/prettier */
+"use client";
 import { Card, CardBody, CardHeader, Link } from "@heroui/react";
 import { FaEnvelope } from "react-icons/fa";
+import { useLanguage } from "@/context/LanguageContext";
 
 import Contact from ".";
 
 
 export default function Footer() {
+  const { t, language } = useLanguage();
   const currentYear = new Date().getFullYear();
   const email = "aryansyahyudhawijaya@gmail.com";
 
@@ -16,9 +19,9 @@ export default function Footer() {
       <div className="container mx-auto flex flex-col justify-between items-center px-6 space-y-12">
         <section className="space-y-3 text-center">
           <h1 className="text-2xl md:text-5xl font-semibold">
-            My Social Media
+            {t("footer.title")}
           </h1>
-          <p> Follow me on my social media to get the latest update!</p>
+          <p>{t("footer.desc")}</p>
         </section>
 
         <nav
@@ -36,7 +39,7 @@ export default function Footer() {
                 />
             </CardHeader>
             <CardBody>
-              <p className=" line-clamp-3">{data.body}</p>
+              <p className=" line-clamp-3">{data.body[language]}</p>
             </CardBody>
           </Card>
           ))
@@ -51,7 +54,7 @@ export default function Footer() {
             </a>
           </p>
           <p className="text-sm">
-            &copy; {currentYear} Aryansyah Yudha Wijaya. All rights reserved.
+            &copy; {currentYear} Aryansyah Yudha Wijaya. {t("footer.copyright")}
           </p>
         </address>
       </div>

@@ -12,16 +12,20 @@ import {
 import Link from "next/link";
 
 import { ThemeSwitch } from "@/components/theme-switch";
+import { useLanguage } from "@/context/LanguageContext";
+import { LanguageSwitch } from "@/components/language-switch";
+import { TranslationKey } from "@/config/translations";
 
 const ListItem = [
-  { name: "Home", link: "/" },
-  { name: "My Project", link: "#projects" },
-  { name: "My Skills", link: "#skills" },
-  { name: "Contact Me", link: "#contact" },
+  { key: "nav.home" as TranslationKey, link: "/" },
+  { key: "nav.projects" as TranslationKey, link: "#projects" },
+  { key: "nav.skills" as TranslationKey, link: "#skills" },
+  { key: "nav.contact" as TranslationKey, link: "#contact" },
 ];
 
 export const Navbar = () => {
-  const [active, setActive] = useState("Home");
+  const { t } = useLanguage();
+  const [active, setActive] = useState("nav.home");
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -61,10 +65,10 @@ export const Navbar = () => {
           className="hidden md:flex w-full md:space-x-5 xl:space-x-24"
           justify="center"
         >
-          <NavbarItem className="flex gap-16 ">
+          <NavbarItem className="flex gap-16 items-center">
             {ListItem.map((item) => (
               <Link
-                key={item.name}
+                key={item.key}
                 passHref
                 href={item.link}
                 onClick={(e) => {
@@ -76,16 +80,16 @@ export const Navbar = () => {
                       section.scrollIntoView({ behavior: "smooth" });
                     }
                   }
-                  setActive(item.name);
+                  setActive(item.key);
                 }}
               >
                 <motion.div
-                  className="relative flex items-center justify-center px-4 py-2 cursor-pointer"
+                  className="relative flex items-center justify-center min-w-[140px] py-2 cursor-pointer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  onClick={() => setActive(item.name)}
+                  onClick={() => setActive(item.key)}
                 >
-                  {active === item.name && (
+                  {active === item.key && (
                     <motion.div
                       className={
                         theme === "dark"
@@ -105,14 +109,17 @@ export const Navbar = () => {
                   <p
                     className={`relative transition-all ${
                       theme === "light" ? "text-gray-900" : "text-white"
-                    } ${active === item.name ? "font-bold" : ""}`}
+                    } ${active === item.key ? "font-bold" : ""}`}
                   >
-                    {item.name}
+                    {t(item.key)}
                   </p>
                 </motion.div>
               </Link>
             ))}
-            <ThemeSwitch />
+            <div className="flex gap-4 items-center">
+              <ThemeSwitch />
+              <LanguageSwitch />
+            </div>
           </NavbarItem>
         </NavbarContent>
 
@@ -155,7 +162,7 @@ export const Navbar = () => {
               <div className="mt-12 flex flex-col space-y-6">
                 {ListItem.map((item) => (
                   <motion.div
-                    key={item.name}
+                    key={item.key}
                     className="relative cursor-pointer p-3 rounded-lg transition-all duration-300"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
@@ -168,11 +175,11 @@ export const Navbar = () => {
                           section.scrollIntoView({ behavior: "smooth" });
                         }
                       }
-                      setActive(item.name);
+                      setActive(item.key);
                       setIsDrawerOpen(false);
                     }}
                   >
-                    {active === item.name && (
+                    {active === item.key && (
                       <motion.div
                         className="absolute inset-0 bg-cyan-500 rounded-lg blur-md opacity-50"
                         layoutId="activeBackground"
@@ -184,15 +191,16 @@ export const Navbar = () => {
                         theme === "light" ? "text-gray-900" : "text-white"
                       }`}
                     >
-                      {item.name}
+                      {t(item.key)}
                     </p>
                   </motion.div>
                 ))}
               </div>
 
-              {/* Theme Switch di Drawer */}
-              <div className="mt-8">
+              {/* Theme & Language Switch di Drawer */}
+              <div className="mt-8 flex items-center gap-4">
                 <ThemeSwitch />
+                <LanguageSwitch />
               </div>
             </motion.div>
           </motion.div>

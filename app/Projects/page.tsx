@@ -4,11 +4,13 @@
 import { Card, CardFooter, CardHeader, Divider, CardBody, Link } from "@heroui/react";
 import Image from "next/image";
 import { useEffect, useState, useMemo } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 
 import project from ".";
 
 export default function Projects() {
   const [activeCard] = useState<string | null>(null);
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -47,8 +49,8 @@ export default function Projects() {
  
       <header className="text-center">
         <h1 className="text-2xl md:text-5xl font-semibold">
-          <span className="text-[#11181C] dark:text-[#ECEDEE]">My</span>{" "}
-          <span className="text-[#328CF2]">Projects</span>
+          <span className="text-[#11181C] dark:text-[#ECEDEE]">{t("projects.titlePrefix")}</span>{" "}
+          <span className="text-[#328CF2]">{t("projects.titleSuffix")}</span>
         </h1>
       </header>
 
@@ -81,7 +83,7 @@ export default function Projects() {
               </CardHeader>
               <Divider className="bg-[#FEFEFE] dark:bg-[#111113] h-0.5" />
               <CardBody className="bg-[#FEFEFE] dark:bg-[#111113] bg-opacity-50 p-4 h-32 ">
-                <p className="text-[#20262A] dark:text-[#ECEDEE] line-clamp-3">{data.describe}</p>
+                <p className="text-[#20262A] dark:text-[#ECEDEE] line-clamp-3">{data.describe[language]}</p>
               </CardBody>     
               <CardFooter className="bg-[#FEFEFE] dark:bg-[#111113] bg-opacity-50 p-4 flex justify-between items-center">
                 <Link
@@ -90,7 +92,7 @@ export default function Projects() {
                   className="text-blue-600 hover:text-blue-500 transition-all"
                   href={data.url}
                 >
-                  Visit the website →
+                  {t("projects.visit")}
                 </Link>
               </CardFooter>
             </Card>

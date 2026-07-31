@@ -6,39 +6,54 @@ const listContact = [
     {
         id: 1,
         name: "GitHub",
-        body: "For more source code, visit my GitHub.",
+        body: {
+            id: "Untuk kode sumber lebih lanjut, kunjungi GitHub saya.",
+            en: "For more source code, visit my GitHub."
+        },
         url: "https://github.com/wijaya524",
         myIcon: FaGithub 
     },
     {
         id: 2,
         name: "LinkedIn",
-        body: "Connect with me on LinkedIn.",
+        body: {
+            id: "Terhubung dengan saya di LinkedIn.",
+            en: "Connect with me on LinkedIn."
+        },
         url: "https://www.linkedin.com/in/aryansyah-yudha-wijaya-1247142a5",
         myIcon: FaLinkedin
     },
     {
         id: 3,
         name: "Instagram",
-        body: "Follow me on Instagram.",
+        body: {
+            id: "Ikuti saya di Instagram.",
+            en: "Follow me on Instagram."
+        },
         url: "https://www.instagram.com/ryanfor58?igsh=MWl1eHk0OWR3Zmp4Mg==",
         myIcon: FaInstagram
     },
     {
         id: 4,
         name: "Youtube",
-        body: "Subscribe to my YouTube channel.",
+        body: {
+            id: "Subscribe saluran YouTube saya.",
+            en: "Subscribe to my YouTube channel."
+        },
         url: "https://www.youtube.com/@aryakidyt2492",
         myIcon: FaYoutube
-    }, {
+    },
+    {
         id: 5,
         name: "Tiktok",
-        body: "Follow to my Tiktok.",
+        body: {
+            id: "Ikuti Tiktok saya.",
+            en: "Follow to my Tiktok."
+        },
         url: "https://www.tiktok.com/@ryanfor_58?is_from_webapp=1&sender_device=pc",
         myIcon: FaTiktok
     },
 ];
-
 
 function Contact() {
     return listContact;

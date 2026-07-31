@@ -5,10 +5,12 @@ import React, { useEffect, useRef, useState, useMemo, useCallback } from "react"
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useLanguage } from "@/context/LanguageContext";
 
 import express from "@/public/images/express-js.png";
 
 const SkillsPage = () => {
+  const { t } = useLanguage();
   const skills = useMemo(
     () => [
       { src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg", name: "HTML", color: "#E44D26" },
@@ -111,7 +113,7 @@ const SkillsPage = () => {
     <section className="min-h-screen flex flex-col items-center justify-center gap-28 p-10 relative overflow-hidden" id="skills">
       <header className="text-center">
         <h1 className="text-2xl md:text-5xl font-bold text-[#11181C] dark:text-white" data-aos="fade-up">
-          My <span className="text-[#FF8A59]">Skills</span>
+          {t("skills.titlePrefix")} <span className="text-[#FF8A59]">{t("skills.titleSuffix")}</span>
         </h1>
       </header>
 
