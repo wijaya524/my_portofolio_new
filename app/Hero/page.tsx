@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 "use client";
 
 import Image from "next/image";
@@ -6,9 +7,10 @@ import { useEffect, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { useTheme } from "next-themes";
 import Aos from "aos";
-import { useLanguage } from "@/context/LanguageContext";
 
-import Mypicture from "../../components/images/my-picture.png";
+import Mypicture from "../../components/images/my-picture.webp";
+
+import { useLanguage } from "@/context/LanguageContext";
 
 const CircuitEffect = () => {
   const [positions, setPositions] = useState<{ top: string; left: string }[]>(
@@ -56,10 +58,10 @@ const HeroPage = () => {
 
   useEffect(() => {
     const delay = setTimeout(() => {
-      setShowText(true); 
-    }, 3000); 
+      setShowText(true);
+    }, 3000);
 
-    return () => clearTimeout(delay); 
+    return () => clearTimeout(delay);
   }, []);
 
   useEffect(() => {
@@ -68,6 +70,7 @@ const HeroPage = () => {
 
   useEffect(() => {
     let i = 0;
+
     setText("");
     const interval = setInterval(() => {
       if (i < fullText.length) {
@@ -86,20 +89,25 @@ const HeroPage = () => {
   const renderWelcomeTitle = () => {
     const highlightWord = language === "en" ? "Portfolio" : "Portofolio";
     const highlightIndex = text.indexOf(highlightWord);
-    
+
     if (highlightIndex === -1) {
       return (
         <h1 className="text-4xl md:text-6xl font-extrabold">
           {text}
-          {text.length < fullText.length && <span className="animate-blink">|</span>}
+          {text.length < fullText.length && (
+            <span className="animate-blink">|</span>
+          )}
         </h1>
       );
     }
-    
+
     const beforePart = text.slice(0, highlightIndex);
-    const typedHighlightPart = text.slice(highlightIndex, highlightIndex + highlightWord.length);
+    const typedHighlightPart = text.slice(
+      highlightIndex,
+      highlightIndex + highlightWord.length,
+    );
     const afterPart = text.slice(highlightIndex + highlightWord.length);
-    
+
     return (
       <h1 className="text-4xl md:text-6xl font-extrabold">
         {beforePart}
@@ -107,7 +115,9 @@ const HeroPage = () => {
           {typedHighlightPart}
         </span>
         {afterPart}
-        {text.length < fullText.length && <span className="animate-blink">|</span>}
+        {text.length < fullText.length && (
+          <span className="animate-blink">|</span>
+        )}
       </h1>
     );
   };

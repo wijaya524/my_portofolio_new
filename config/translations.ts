@@ -10,7 +10,7 @@ export const translations = {
     "hero.welcome": "Selamat Datang di Portofolio Saya",
     "hero.typewriter1": "Saya seorang Web Developer",
     "hero.typewriter2": "Saya seorang Mahasiswa",
-    "hero.typewriter3": "Saya Membangun Pengalaman Digital",
+    "hero.typewriter3": "Saya Membangun Pengalaman",
     "hero.description": "Mahasiswa Teknik Informatika Universitas Hasyim Asy'ari Tebuireng Jombang dengan pengalaman di bidang pengembangan web dan teknologi terapan. Berpengalaman sebagai mantan magang di Telkom Akses Jombang (2022) serta alumni program ASAH LED oleh Dicoding (2025) yang memperkuat keahlian di bidang React, back-end development, dan AI. Saat ini juga aktif mengajar sebagai guru di SMK 10 Nopember Jombang.",
 
     "projects.titlePrefix": "Proyek",
@@ -41,7 +41,7 @@ export const translations = {
     "hero.welcome": "Welcome to My Portfolio",
     "hero.typewriter1": "I'm a Web Developer",
     "hero.typewriter2": "I'm a Student",
-    "hero.typewriter3": "I Build Digital Experiences",
+    "hero.typewriter3": "I'am Build a Experiences",
     "hero.description": "Informatics Engineering student at Hasyim Asy'ari University, Tebuireng, Jombang, with experience in web development and applied technology. He is a former intern at Telkom Akses Jombang (2022) and an alumnus of the ASAH LED program by Dicoding (2025), strengthening his skills in React, back-end development, and AI. He is also currently a teacher at SMK 10 Nopember Jombang.",
 
     "projects.titlePrefix": "My",
