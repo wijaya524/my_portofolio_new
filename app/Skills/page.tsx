@@ -3,7 +3,6 @@
 
 import React, { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import Image from "next/image";
-import AOS from "aos";
 import "aos/dist/aos.css";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -38,7 +37,10 @@ const SkillsPage = () => {
   }, []);
 
   useEffect(() => {
-    AOS.init({ duration: 800, once: true });
+    if (typeof window === "undefined") return;
+    import("aos").then((AosModule) => {
+      AosModule.default.init({ duration: 800, once: true });
+    });
   }, []);
 
   const updatePositions = useCallback(() => {

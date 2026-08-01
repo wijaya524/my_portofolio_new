@@ -49,7 +49,9 @@ export const Navbar = () => {
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted) {
+    return <div className="w-full h-[88px]" />;
+  }
 
   return (
     <>

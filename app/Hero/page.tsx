@@ -137,10 +137,12 @@ const HeroPage = () => {
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 relative z-10 px-6">
         <header className="md:w-1/2 text-left flex flex-col gap-4">
           {/* Animasi typing untuk judul */}
-          {renderWelcomeTitle()}
+          <div className="min-h-[120px] md:min-h-[160px] flex items-center">
+            {renderWelcomeTitle()}
+          </div>
 
           {/* Efek Typewriter yang sudah ada */}
-          <h2 className="text-2xl md:text-4xl font-semibold text-gray-700 dark:text-gray-300">
+          <h2 className="text-2xl md:text-4xl font-semibold text-gray-700 dark:text-gray-300 min-h-[40px] md:min-h-[48px]">
             {showText && (
               <Typewriter
                 key={language}
