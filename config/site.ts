@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Aryansyah Wijaya",
+  name: "Aryansyah Yudha Wijaya",
   description: "Seorang Mahasiswa Teknik Informatika dari Universitas Hasyim Asy'ari Tebuireng Jombang. Berpengalaman dalam membuat Website Modern, pengelolaan jaringan komputer, serta penerapan teknologi AI untuk menghadirkan solusi digital yang responsif dan efisien.",
   navItems: [
     {

@@ -62,12 +62,20 @@ const SkillsPage = () => {
   }, []);
 
   useEffect(() => {
-    const observer = new ResizeObserver(() => requestAnimationFrame(updatePositions));
+    const observer = new ResizeObserver(() => {
+      requestAnimationFrame(updatePositions);
+    });
 
     if (containerRef.current) observer.observe(containerRef.current);
-    updatePositions();
+    
+    const timer = setTimeout(() => {
+      updatePositions();
+    }, 500);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+    };
   }, [updatePositions]);
 
   const drawConnections = useMemo(() => {
